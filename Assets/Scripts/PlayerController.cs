@@ -66,12 +66,6 @@ public class PlatformPlayer : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Sign(deltaX) / playerScale.x, 1 / playerScale.y, 1);
         }
 
-       //anim.SetFloat("speed", Mathf.Abs(deltaX));
-       if (!Mathf.Approximately(deltaX, 0))
-        {
-            transform.localScale = new Vector3(Mathf.Sign(deltaX), 1, 1);
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
