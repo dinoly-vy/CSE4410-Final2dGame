@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Meteor : MonoBehaviour
 {
-    private int damage = 1;
+    [SerializeField] private int damage = 1;
+    [SerializeField] private float fallSpeed = 5f;
 
-    //meteor will disappear after hitting player or out of camera view
+    private void Update()
+    {
+        transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
+    }
+
     private void OnTriggerEnter2D(Collider2D hit)
     {
         if (hit.CompareTag("Player"))
         {
             Debug.Log("Player has been hit by meteor!");
-            //reference playerhealth script to hurt player
+
             PlayerHealth playerHealth = hit.GetComponent<PlayerHealth>();
+
             if (playerHealth != null)
             {
                 playerHealth.Hurt(damage);
             }
-            
+
             Destroy(gameObject);
         }
     }
@@ -28,3 +34,5 @@ public class Meteor : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+

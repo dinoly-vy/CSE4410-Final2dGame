@@ -1,23 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //script that manages players health points
-    //game will freeze when player loses all health
-    public int health = 5;
+    [SerializeField] private int maxHealth = 5;
+    [SerializeField] private DeathScreen deathScreenScript;
+    [SerializeField] private HealthBarUI healthBarUI;
+
+    private int currentHealth;
+    private bool isDead = false;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+
+        if (healthBarUI != null)
+        {
+            healthBarUI.UpdateHealthBar(currentHealth, maxHealth);
+        }
+    }
 
     public void Hurt(int damage)
     {
-        health -= damage;
-        Debug.Log($"Health: {health}");
+        if (isDead)
+            return;
 
-        if (health <= 0)
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log($"Health: {currentHealth}");
+
+        if (healthBarUI != null)
         {
-            Debug.Log("Player has died!");
-            //everything stops
-            Time.timeScale = 0f;
+            healthBarUI.UpdateHealthBar(currentHealth, maxHealth);
+        }
+        else
+        {
+            Debug.LogError("HealthBarUI is not assigned on PlayerHealth.");
+        }
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        if (isDead)
+            return;
+
+        isDead = true;
+
+        Debug.Log("Player has died!");
+
+        if (healthBarUI != null)
+        {
+            healthBarUI.HideHealthBar();
+        }
+
+        if (deathScreenScript != null)
+        {
+            deathScreenScript.ShowDeathScreen();
+        }
+        else
+        {
+            Debug.LogError("DeathScreenScript is not assigned on PlayerHealth.");
         }
     }
 }

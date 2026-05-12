@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour
     private Button startGameButton;
     private Button quitButton;
 
-    [SerializeField] private string gameSceneName = "Level1";
+    [SerializeField] private string gameSceneName = "Lvl1";
 
     private void OnEnable()
     {

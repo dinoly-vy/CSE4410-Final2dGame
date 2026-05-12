@@ -1,0 +1,29 @@
+#HealthBarContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 360px;
+    height: 70px;
+    background-image: url("project://database/Assets/UI%20Toolkit/Sprites/PNG/Main_UI/Boss_HP_Bar_2.png?fileID=21300000&guid=7906ceeb9e38de44b84477968836056a&type=3#Boss_HP_Bar_2");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+#HealthBarFill {
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    width: 300px;
+    height: 24px;
+    background-image: url("project://database/Assets/UI%20Toolkit/Sprites/PNG/Main_UI/Boss_HP_Bar_1.png?fileID=21300000&guid=4b27a333bacee4a41acb85311bb8e53c&type=3#Boss_HP_Bar_1");
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+#HealthIcon {
+    position: absolute;
+    right: 18px;
+    top: 8px;
+    width: 32px;
+    height: 32px;
+    background-image: url("project://database/Assets/UI%20Toolkit/Sprites/PNG/Main_UI/Boss_HP_Bar_3.png?fileID=21300000&guid=0dfb5cc46557dcd42867fa64466c67dc&type=3#Boss_HP_Bar_3");
+    -unity-background-scale-mode: scale-to-fit;
+}
