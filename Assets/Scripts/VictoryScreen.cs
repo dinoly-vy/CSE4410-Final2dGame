@@ -27,7 +27,6 @@ public class VictoryScreenScript : MonoBehaviour
 
         container = root.Q<VisualElement>("Container");
 
-        // These must match the Name fields in UI Builder
         startButton = root.Q<Button>("StartGameButton");
         exitButton = root.Q<Button>("QuitButton");
 
