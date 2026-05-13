@@ -190,7 +190,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 4
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: c16b33b2a69fb6e4fa51e6751bd0e3f7, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 14d688737515a364eb56dc975161f96f, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 10
 --- !u!4 &1874537315
 Transform:
   m_ObjectHideFlags: 0
